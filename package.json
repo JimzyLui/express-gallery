@@ -31,8 +31,10 @@
     "mocha": "^6.0.2",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
+    "passport": "^0.4.0",
     "pg": "^7.8.2",
     "popper": "^1.0.1",
+    "redis": "^2.8.0",
     "rotating-file-stream": "^1.4.0",
     "supertest": "^4.0.0",
     "winston": "^3.2.1"
