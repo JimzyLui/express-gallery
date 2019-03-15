@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Photos = require('./database/models/Photos');
+const Photos = require('./resources/database/models/Photos');
 
 //data consts
 const PORT = process.env.PORT;
@@ -17,5 +17,5 @@ app.use(bodyParser.json({extended:true}));
 
 //start server
 app.listen(PORT, ()=>{
-    console.log('Listening on PORT ' + PORT);
+    console.log(`Listening on PORT  + ${PORT}`);
 })
