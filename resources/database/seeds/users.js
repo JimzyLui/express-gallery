@@ -1,13 +1,26 @@
 
+const faker = require("faker");
+const tableName = 'users';
+
+const createFakeRecord = ()=>({
+  username: faker.Internet.userName(),
+  nameFirst: faker.name.firstName(),
+  nameLast: faker.name.lastName(),
+  email: faker.Internet.email()
+});
+
+
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex(tableName).truncate()
     .then(function () {
-      // Inserts seed entries
-      return knex('table_name').insert([
-        {id: 1, colName: 'rowValue1'},
-        {id: 2, colName: 'rowValue2'},
-        {id: 3, colName: 'rowValue3'}
-      ]);
-    });
+      const arrFakeRecords = [];
+      const iDesiredFakeRecords = 50;
+      for(let i=0; i<iDesiredFakeRecords; i++){
+        arrFakeRecords.push(createFakeRecord());
+      }
+      console.log('createFakeUser(',iDesiredFakeRecords,'): ',arrFakeRecords.length, ' records created.');
+      return knex(tableName)
+      .insert(arrFakeRecords)
+    }); 
 };
