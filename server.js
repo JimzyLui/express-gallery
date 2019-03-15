@@ -11,3 +11,11 @@ if(!PORT) { console.log('No Port Found!');}
 if(!SESSION_SECRET) { console.log('No Session Secret Found!');}
 if(!REDIS_HOSTNAME) { console.log('No Redis Hostname Found!');}
 if(!PORT || !SESSION_SECRET || !REDIS_HOSTNAME) { return process.exit(1); }
+
+const app = express();
+app.use(bodyParser.json({extended:true}));
+
+//start server
+app.listen(PORT, ()=>{
+    console.log('Listening on PORT ' + PORT);
+})
