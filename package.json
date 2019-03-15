@@ -38,6 +38,7 @@
     "redis": "^2.8.0",
     "rotating-file-stream": "^1.4.0",
     "supertest": "^4.0.0",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v15.8.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {
