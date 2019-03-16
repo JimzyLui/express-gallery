@@ -2,6 +2,8 @@ const express = require("express");
 const exhbs = require("express-handlebars");
 const User = require("./resources/database/models/User");
 const Photo = require("./resources/database/models/Photo");
+const bodyParser = require("body-parser");
+const path = require("path");
 
 //data const
 const PORT = process.env.PORT;
@@ -26,7 +28,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //set up handlebars engine
-app.engine("hbs", exhbs({ defaultLayout: "main", extname: "hbs" }));
+app.engine(
+  "hbs",
+  exhbs({
+    defaultLayout: "main",
+    extname: "hbs"
+  })
+);
 
 app.set("view engine", "hbs");
 
