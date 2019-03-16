@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable(tableName, (table) => {
     table.increments('id').primary();
     // table.integer('userId').notNullable().references('users.id');
-    table.integer('userId').notNullable();
+    table.integer('userId').notNullable()
     table.string('author',150).notNullable();
     table.string('caption',100);
     table.string('link',100);
