@@ -1,13 +1,13 @@
 'use strict';
 var express = require('express');
-var User = require('../models/user');
+var Photo = require('../models/photo');
 var router = express.Router();
 router.route('/')
   .get(function(req, res) {
     User
       .fetchAll()
-      .then(function(users) {
-        res.json({ users });
+      .then(function(photos) {
+        res.json({ photos });
       });
   });
 module.exports = router;
