@@ -1,8 +1,7 @@
-
 const express = require("express");
 const exhbs = require("express-handlebars");
-const User = require('./resources/database/models/User');
-const Photo = require('./resources/database/models/Photo');
+const User = require("./resources/database/models/User");
+const Photo = require("./resources/database/models/Photo");
 
 //data const
 const PORT = process.env.PORT;
