@@ -2,6 +2,7 @@ FROM node:10.15.1-alpine
 
 # Update latest security patches
 RUN apk update && apk upgrade
+RUN apk add --no-cache git
 
 # RUN adduser webuser -
 RUN adduser -D -g '' webuser

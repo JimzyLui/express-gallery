@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const Photos = require('./resources/database/models/Photos');
+const User = require('./resources/database/models/User');
+const Photo = require('./resources/database/models/Photo');
 
-//data consts
+//data const
 const PORT = process.env.PORT;
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const REDIS_HOSTNAME = process.env.REDIS_HOSTNAME;
