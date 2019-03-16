@@ -3,11 +3,11 @@ const faker = require("faker");
 const tableName = 'photos';
 
 const createFakeRecord = ()=>({
-  userId: faker.Internet.userName(),
+  userId: faker.random.number({min:1, max:50}),
   author: faker.name.findName(),
-  link: faker.Image.imageUrl(),
-  caption: faker.Company.catchPhrase(),
-  description: faker.Lorem.paragraph()
+  link: faker.image.imageUrl(),
+  caption: faker.company.catchPhrase(),
+  description: faker.lorem.paragraph()
 });
 
 
@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
   return knex(tableName).truncate()
     .then(function () {
       const arrFakeRecords = [];
-      const iDesiredFakeRecords = 50;
+      const iDesiredFakeRecords = 100;
       for(let i=0; i<iDesiredFakeRecords; i++){
         arrFakeRecords.push(createFakeRecord());
       }

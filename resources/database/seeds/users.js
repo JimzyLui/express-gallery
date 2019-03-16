@@ -3,10 +3,10 @@ const faker = require("faker");
 const tableName = 'users';
 
 const createFakeRecord = ()=>({
-  username: faker.Internet.userName(),
   nameFirst: faker.name.firstName(),
   nameLast: faker.name.lastName(),
-  email: faker.Internet.email()
+  username: faker.internet.userName(),
+  email: faker.internet.email()
 });
 
 
