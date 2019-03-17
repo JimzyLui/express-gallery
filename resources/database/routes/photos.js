@@ -1,13 +1,16 @@
 "use strict";
-var express = require("express");
-var Photo = require("../models/photo");
-var router = express.Router();
-router.route("/").get(function(req, res) {
-  User.fetchAll().then(function(photos) {
+const express = require("express");
+const Photo = require("../models/photo");
+const router = express.Router();
+
+router.get("/edit/:id", (req, res) => {
+  res.render("edit", { mainHeading: "Edit Photo" });
+});
+
+router.get("/", (req, res) => {
+  Photo.fetchAll().then(function(photos) {
     res.json({ photos });
   });
 });
-router.route("/edit").get(function(req, res) {
-  res.render("edit");
-});
+
 module.exports = router;
