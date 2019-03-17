@@ -3,8 +3,9 @@ var express = require("express");
 var Photo = require("../models/photo");
 var router = express.Router();
 router.route("/").get(function(req, res) {
-  User.fetchAll().then(function(photos) {
-    res.json({ photos });
+  // res.render("photos");
+  Photo.fetchAll().then(function(photos) {
+    res.json("photos", { photos, title: "Gallery" });
   });
 });
 router.route("/edit").get(function(req, res) {
