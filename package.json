@@ -1,0 +1,44 @@
+{
+  "name": "auth_demo",
+  "version": "1.0.0",
+  "description": "Some description",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/nodemon ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "bookshelf": "^0.14.2",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^3.4.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "express-session": "^1.15.6",
+    "faker": "^4.1.0",
+    "form-data": "^2.3.3",
+    "joi": "^14.3.1",
+    "knex": "^0.16.3",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.10",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.8.1",
+    "popper": "^1.0.1",
+    "rotating-file-stream": "^1.4.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "install-peers": "^1.0.3",
+    "mocha": "^6.0.2",
+    "sass": "^1.17.3",
+    "supertest": "^4.0.2"
+  }
+}

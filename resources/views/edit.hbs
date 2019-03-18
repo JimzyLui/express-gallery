@@ -1,0 +1,23 @@
+<div id="photoEditPanel">
+  <form id='photoEdit' action="photos/update/{{id}}" method="post">
+    <div class='control'>
+      <label for="caption">Caption:</label>
+      <input type="text" name="caption" value={{caption}}>
+    </div>
+    <div class='control'>
+      <label for="link">Url:</label>
+      <input type="text" name="link" value={{link}}>
+    </div>
+    <div class='control'>
+      <label for="description">Description:</label>
+      <input type="text" name="description" value={{description}}>
+    </div>
+    <div>
+      <button id="updatePhoto" type="submit">Save</button>
+      <button type="cancel">Cancel</button>
+    </div>
+  </form>
+</div>
+<div id="footer">
+  {{>footer}}
+</div>
