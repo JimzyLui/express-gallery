@@ -1,15 +1,10 @@
-const tableName = "movies";
+const tableName = "eventTypes";
 
 exports.up = function(knex, Promise) {
   return knex.schema
     .createTable(tableName, table => {
       table.increments("id").primary();
-      table.integer("eventTypeId").notNullable();
-      table.string("title", 150).notNullable();
-      table.text("briefDesc");
-      table.text("synopsis");
-      table.text("plot");
-      table.date("eventDate");
+      table.string("eventType", 50).notNullable();
       table.timestamp("created_at").defaultTo(knex.fn.now());
       table.timestamp("modified_at").defaultTo(knex.fn.now());
     })

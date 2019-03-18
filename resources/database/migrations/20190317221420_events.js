@@ -1,4 +1,4 @@
-const tableName = "movies";
+const tableName = "events";
 
 exports.up = function(knex, Promise) {
   return knex.schema

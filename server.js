@@ -3,8 +3,8 @@ const moment = require("moment");
 const path = require("path");
 const express = require("express");
 const expressHBS = require("express-handlebars");
-const User = require("./resources/database/models/User");
-const Photo = require("./resources/database/models/Photo");
+// const User = require("./resources/database/models/User");
+// const Photo = require("./resources/database/models/Photo");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
@@ -77,18 +77,18 @@ app.use(bodyParser.json());
 // adding the sass middleware
 // app.use(
 //   sass.middleware({
-//       src: __dirname + '/resources', 
+//       src: __dirname + '/resources',
 //       dest: __dirname + '/resources',
 //       prefix: '',
-//       debug: true,       
+//       debug: true,
 //   })
-// ); 
+// );
 app.use(bodyParser.urlencoded({ extended: true })); // parse forms
 app.use(express.static(path.join(__dirname, "/resources")));
 //app.use(express.static(__dirname + "/node_modules/bootstrap/dist"));
 
-const photoRouter = require("./resources/database/routes/photos");
-const userRouter = require("./resources/database/routes/users");
+const photoRouter = require("./resources/database/routes/photosRoute");
+const userRouter = require("./resources/database/routes/usersRoute");
 
 //set up handlebars engine
 // Register `hbs.engine` with the Express app.
