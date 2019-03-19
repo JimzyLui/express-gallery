@@ -76,7 +76,7 @@ app.use(flash());
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true })); // parse forms
-app.use(express.static(path.join(__dirname, "")));
+app.use(express.static(path.join(__dirname, "/resources")));
 //app.use(express.static(__dirname + "/node_modules/bootstrap/dist"));
 
 const photoRouter = require("./resources/database/routes/photos");
