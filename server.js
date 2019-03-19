@@ -3,15 +3,15 @@ const moment = require("moment");
 const path = require("path");
 const express = require("express");
 const expressHBS = require("express-handlebars");
-const User = require("./resources/database/models/User");
-const Photo = require("./resources/database/models/Photo");
+// const User = require("./resources/database/models/User");
+// const Photo = require("./resources/database/models/Photo");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
 const fs = require("fs"); // file system
 const morgan = require("morgan"); // for logging
 const rfs = require("rotating-file-stream");
-
+// const sass = require("node-sass");
 //data const
 const PORT = process.env.PORT || 8080;
 const SESSION_SECRET = process.env.SESSION_SECRET;
@@ -74,13 +74,21 @@ app.use(flash());
 // });
 
 app.use(bodyParser.json());
-
+// adding the sass middleware
+// app.use(
+//   sass.middleware({
+//       src: __dirname + '/resources',
+//       dest: __dirname + '/resources',
+//       prefix: '',
+//       debug: true,
+//   })
+// );
 app.use(bodyParser.urlencoded({ extended: true })); // parse forms
 app.use(express.static(path.join(__dirname, "/resources")));
 //app.use(express.static(__dirname + "/node_modules/bootstrap/dist"));
 
-const photoRouter = require("./resources/database/routes/photos");
-const userRouter = require("./resources/database/routes/users");
+const photoRouter = require("./resources/database/routes/photosRoute");
+const userRouter = require("./resources/database/routes/usersRoute");
 
 //set up handlebars engine
 // Register `hbs.engine` with the Express app.

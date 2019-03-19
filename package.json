@@ -14,7 +14,6 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "bookshelf": "^0.14.2",
-    "chai": "^4.2.0",
     "connect-flash": "^0.1.1",
     "connect-redis": "^3.4.0",
     "dotenv": "^6.2.0",
@@ -25,7 +24,6 @@
     "form-data": "^2.3.3",
     "joi": "^14.3.1",
     "knex": "^0.16.3",
-    "mocha": "^6.0.2",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.18.10",
@@ -34,11 +32,13 @@
     "pg": "^7.8.1",
     "popper": "^1.0.1",
     "rotating-file-stream": "^1.4.0",
-    "sass": "^1.17.3",
-    "supertest": "^4.0.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "install-peers": "^1.0.3"
+    "chai": "^4.2.0",
+    "install-peers": "^1.0.3",
+    "mocha": "^6.0.2",
+    "sass": "^1.17.3",
+    "supertest": "^4.0.2"
   }
 }

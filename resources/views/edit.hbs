@@ -1,32 +1,23 @@
-<form action="" method="post">
-    <div>
-        <label for="caption">
-            Caption:
-        </label>
-        <input type="text" name="caption" value={{caption}}>
+<div id="photoEditPanel">
+  <form id='photoEdit' action="photos/update/{{id}}" method="post">
+    <div class='control'>
+      <label for="caption">Caption:</label>
+      <input type="text" name="caption" value={{caption}}>
     </div>
-    <br>
-    <br>
-    <div>
-        <label for="link">
-            Url:
-        </label>
-        <input type="text" name="link" value={{link}}>
+    <div class='control'>
+      <label for="link">Url:</label>
+      <input type="text" name="link" value={{link}}>
     </div>
-    <br>
-    <br>
-    <div>
-        <label for="description">
-            Description:
-        </label>
-        <input type="text" name="description" value={{description}}>
+    <div class='control'>
+      <label for="description">Description:</label>
+      <input type="text" name="description" value={{description}}>
     </div>
     <div>
-        <button id="editPhotoBtn" type="submit">Submit</button>
+      <button id="updatePhoto" type="submit">Save</button>
+      <button type="cancel">Cancel</button>
     </div>
-    <br>
-    <br>
-    <div id="footer">
-        {{>footer}}
-    </div>
-</form>
+  </form>
+</div>
+<div id="footer">
+  {{>footer}}
+</div>
