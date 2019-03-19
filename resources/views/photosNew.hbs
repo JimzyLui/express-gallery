@@ -1,0 +1,20 @@
+<div id="photoNewPanel">
+    <form id='photoEdit' action="photos/new" method="post">
+        <div class='control'>
+            <label for="caption">Caption:</label>
+            <input type="text" name="caption" required minlength="1" size="25">
+        </div>
+        <div class='control'>
+            <label for="link">Url:</label>
+            <input type="text" name="link" required minlength="10">
+        </div>
+        <div class='control'>
+            <label for="description">Description:</label>
+            <input type="text" name="description" required minlength="1" size="50">
+        </div>
+        <div>
+            <button id="newPhoto" type="submit">Save</button>
+            <button type="cancel">Cancel</button>
+        </div>
+    </form>
+</div>
