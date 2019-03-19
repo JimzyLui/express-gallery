@@ -3,6 +3,16 @@ var express = require("express");
 var User = require("../models/user");
 var router = express.Router();
 
+router.use("/", (req, res, next) => {
+  next();
+});
+
+router.get("/new", (req, res) => {
+  console.log("launch input screen...");
+  res.render("userNew", {
+    pageTitle: "Add New User"
+  });
+});
 router.post("/add", (req, res) => {
   new User({
     nameFirst: req.body.nameFirst,
