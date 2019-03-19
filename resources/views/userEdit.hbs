@@ -1,0 +1,35 @@
+<div class='userEdit container display'>
+  <h3>{{ pageTitle }}</h3>
+
+  <form action='/users/UPDATE/{{p.id}}' method="POST">
+    <div class='control'>
+      <label for="nameFirst">First Name: </label>
+      <input type="text" id="nameFirst" name="nameFirst" required minlength="4" maxlength="25" size="20"
+        value="{{p.nameFirst}}">
+    </div>
+    <div class='control'>
+      <label for="nameLast">Last Name: </label>
+      <input type="text" id="nameLast" name="nameLast" required minlength="4" maxlength="25" size="20"
+        value="{{p.nameLast}}">
+    </div>
+    <div class='control'>
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username" required minlength="4" maxlength="25" size="20"
+        value="{{p.username}}">
+    </div>
+    <div class='control'>
+      <label for="email">Email: </label>
+      <input type="email" id="email" name="email" required minlength="4" maxlength="25" size="20" value="{{p.email}}">
+    </div>
+
+    <input type="hidden" value="{{p.id}}">
+    <div class='control buttons'>
+      <span>
+        <button id='updateUser'>Save</button>
+      </span><span>
+        <button type='cancel' formaction="/users/{{p.id}}" formmethod="GET">Cancel</button>
+      </span>
+    </div>
+  </form>
+</div>
+{{> footerUsers}}

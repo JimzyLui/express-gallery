@@ -1,0 +1,33 @@
+<div class='userDetail container display'>
+
+  <h3>{{ pageTitle }}</h3>
+
+  <div class='control'>
+    <label for="nameFirst">First Name: </label>
+    <div>{{p.nameFirst}}</div>
+  </div>
+  <div class='control'>
+    <label for="nameLast">Last Name: </label>
+    <div>${{p.nameLast}}</div>
+  </div>
+  <div class='control'>
+    <label for="username">Username: </label>
+    <div>{{p.username}}</div>
+  </div>
+  <div class='control'>
+    <label for="email">Email: </label>
+    <div>{{p.email}}</div>
+  </div>
+  <div class='control buttons'>
+    <form>
+      <span>
+        <button type='submit' formaction="/users/{{p.id}}/edit" formmethod="GET">Edit</button>
+      </span><span>
+        <button type='submit' formaction="/users/new" formmethod='GET'>Add</button>
+      </span><span>
+        <button type='submit' formaction="/users/DELETE/{{p.id}}" formmethod='POST'>Delete</button>
+      </span>
+    </form>
+  </div>
+</div>
+{{> footerUsers}}
