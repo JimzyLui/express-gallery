@@ -145,7 +145,7 @@ app.get("/", function(req, res, next) {
 
 //start server
 app.listen(PORT, () => {
-  console.log(`Listening on PORT  + ${PORT}`);
+  console.log(`Listening on PORT ${PORT}`);
 });
 
 /////
