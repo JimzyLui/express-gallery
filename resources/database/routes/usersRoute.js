@@ -1,16 +1,20 @@
 "use strict";
 var express = require("express");
-var User = require("../models/user");
+var User = require("../models/User");
 var router = express.Router();
 
 router.use("/", (req, res, next) => {
+  console.log("Users Route");
   next();
 });
 
 router.get("/new", (req, res) => {
   console.log("launch input screen...");
   res.render("userNew", {
-    pageTitle: "Add New User"
+    mainHeading: "Remember Us!",
+    pageTitle: "Add New User",
+    hasBackgroundImage: true,
+    backgroundImage: "./images/whitelilly.jpeg"
   });
 });
 router.post("/add", (req, res) => {
@@ -27,6 +31,7 @@ router.post("/add", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
+  console.log("PUT: /:id");
   User.where("id", req.params.id)
     .fetch()
     .then(function(user) {
@@ -44,6 +49,7 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
+  console.log("DELETE: /:id");
   User.where("id", req.params.id)
     .destroy()
     .then(function(destroyed) {
@@ -52,7 +58,11 @@ router.delete("/:id", (req, res) => {
 });
 
 router.get("/edit/:id", (req, res) => {
-  res.render("edit", { mainHeading: "Edit User" });
+  User.where({ id: req.params.id })
+    .fetch()
+    .then(function(users) {
+      res.render("userEdit", { p: users, mainHeading: "Edit User" });
+    });
 });
 
 router.get("/search", (req, res) => {
@@ -63,13 +73,16 @@ router.get("/search", (req, res) => {
     });
 });
 router.get("/:id", (req, res) => {
+  console.log("GET: /:id ", req.params.id);
   User.where({ id: req.params.id })
     .fetch()
     .then(function(users) {
       res.json({ users });
     });
 });
+
 router.get("/", (req, res) => {
+  console.log("GET: /");
   User.fetchAll().then(function(users) {
     res.json({ users });
   });

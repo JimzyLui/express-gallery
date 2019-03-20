@@ -117,7 +117,13 @@ app.engine(
 app.set("view engine", "hbs"); // to point the view engine to the hbs engine
 // to point the views location to a different location
 app.set("views", path.join(__dirname, "/resources/views"));
-
+// app.get("/images", function(request, response) {
+//   response.render("image");
+//  });
+// console.log("__dirname: ", __dirname);
+// var appDir = path.dirname(require.main.filename);
+// console.log("appDir: ", appDir);
+app.use("/images", express.static(path.join(__dirname, "/resources/images")));
 app.use("/users", userRouter);
 app.use("/photos", photoRouter);
 
@@ -125,8 +131,11 @@ app.get("/index", (req, res) => {
   res.render("index", { mainHeading: "I don't know" });
 });
 
-app.get("/", (req, res) => {
-  res.render("home", { mainHeading: "Star of proj" });
+app.get("/", (req, res, next) => {
+  res.render("home", {
+    mainHeading: "Star of proj",
+    hasBackgroundImage: false
+  });
 });
 
 // for caching
@@ -137,11 +146,6 @@ app.enable("view cache");
 app.use((req, res, next) => {
   res.status(404).render("404");
 });
-
-/*
-app.get("/", function(req, res, next) {
-  res.render("/articles/index", { layout: false });
-}); */
 
 //start server
 app.listen(PORT, () => {

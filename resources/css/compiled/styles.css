@@ -6,6 +6,15 @@ body {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+  background-image: radial-gradient(yellow, #f06d06);
+}
+
+#navBar {
+  background-color: black;
+  color: white !important;
+  padding: 5px;
+  line-height: 100px;
+  width: 100%;
 }
 
 h1 {
@@ -20,9 +29,45 @@ h1 {
   margin-right: 20%;
 }
 
-.controls {
-  margin-top: 5px;
-  margin-bottom: 5px;
+#userEditPanel,
+#userAddPanel {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  background-color: cornflowerblue;
+  border: 1px solid blue;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+#userEditPanel h3,
+#userAddPanel h3 {
+  text-align: center;
+}
+#userEditPanel form,
+#userAddPanel form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.controlGrid {
+  padding: 5px 5px;
+}
+
+.control {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: stretch;
+  margin: 5px 5px;
+}
+.control label {
+  text-align: end;
+  margin-right: 5px;
+}
+
+.controlButtons {
+  align-self: center;
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */
