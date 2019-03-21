@@ -61,7 +61,11 @@ router.get("/edit/:id", (req, res) => {
   User.where({ id: req.params.id })
     .fetch()
     .then(function(users) {
-      res.render("userEdit", { p: users, mainHeading: "Edit User" });
+      res.render("userEdit", {
+        p: users,
+        mainHeading: "Remember Us!",
+        pageTitle: "Edit User"
+      });
     });
 });
 
@@ -77,7 +81,13 @@ router.get("/:id", (req, res) => {
   User.where({ id: req.params.id })
     .fetch()
     .then(function(users) {
-      res.json({ users });
+      // res.json({ users });
+      console.log(users);
+      res.render("userDetails", {
+        p: users.attributes,
+        mainHeading: "Remember Us!",
+        pageTitle: "User Details"
+      });
     });
 });
 

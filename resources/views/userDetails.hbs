@@ -1,4 +1,4 @@
-<div class='userDetail container display'>
+<div id='userDetailsPanel' class='userDetails container display'>
 
   <h3>{{ pageTitle }}</h3>
 
@@ -8,7 +8,7 @@
   </div>
   <div class='control'>
     <label for="nameLast">Last Name: </label>
-    <div>${{p.nameLast}}</div>
+    <div>{{p.nameLast}}</div>
   </div>
   <div class='control'>
     <label for="username">Username: </label>
@@ -18,8 +18,8 @@
     <label for="email">Email: </label>
     <div>{{p.email}}</div>
   </div>
-  <div class='control buttons'>
-    <form>
+  <form>
+    <div class='controlButtons'>
       <span>
         <button type='submit' formaction="/users/{{p.id}}/edit" formmethod="GET">Edit</button>
       </span><span>
@@ -27,7 +27,7 @@
       </span><span>
         <button type='submit' formaction="/users/DELETE/{{p.id}}" formmethod='POST'>Delete</button>
       </span>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
-{{> footerUsers}}
+{{> footer}}
