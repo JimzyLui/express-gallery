@@ -7,13 +7,22 @@ router.get("/edit/:id", (req, res) => {
   res.render("edit", { mainHeading: "Edit Photo" });
 });
 
-router.get("/new", (req, res) => {
-  res.render("photosNew", { mainHeading: "Add New Photo" });
-});
+router
+  .route("/new")
+  .get((req, res) => {
+    res.render("photosNew", { mainHeading: "Add New Photo" });
+  })
+  .post((req, res) => {
+    res.send("posted!!!");
+  });
 
 router.get("/", (req, res) => {
-  Photo.fetchAll().then(function(photos) {
-    res.json({ photos });
+  Photo.fetchAll().then(photos => {
+    console.log(photos);
+    res.render("photos", { photos }).catch(error => {
+      console.log(error);
+      res.send("An Error Occurred!");
+    });
   });
 });
 

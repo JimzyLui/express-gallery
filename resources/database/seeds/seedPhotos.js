@@ -15,7 +15,7 @@ exports.seed = function(knex, Promise) {
     .truncate()
     .then(function() {
       const arrFakeRecords = [];
-      const iDesiredFakeRecords = 100;
+      const iDesiredFakeRecords = 10;
       for (let i = 0; i < iDesiredFakeRecords; i++) {
         arrFakeRecords.push(createFakeRecord());
       }
