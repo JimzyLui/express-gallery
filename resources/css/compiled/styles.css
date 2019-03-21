@@ -30,7 +30,8 @@ h1 {
 }
 
 #userEditPanel,
-#userAddPanel {
+#userAddPanel,
+#userDetailsPanel {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -40,11 +41,13 @@ h1 {
   margin-right: 20%;
 }
 #userEditPanel h3,
-#userAddPanel h3 {
+#userAddPanel h3,
+#userDetailsPanel h3 {
   text-align: center;
 }
 #userEditPanel form,
-#userAddPanel form {
+#userAddPanel form,
+#userDetailsPanel form {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -63,6 +66,8 @@ h1 {
 .control label {
   text-align: end;
   margin-right: 5px;
+  font-weight: 700;
+  color: blue;
 }
 
 .controlButtons {

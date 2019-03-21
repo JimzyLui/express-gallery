@@ -1,4 +1,4 @@
-<div class='userEdit container display' id='userEditPanel'>
+<div id='userEditPanel' class='userEdit container display'>
   <h3>{{ pageTitle }}</h3>
 
   <form action='/users/UPDATE/{{p.id}}' method="POST">
@@ -23,7 +23,7 @@
     </div>
 
     <input type="hidden" value="{{p.id}}">
-    <div class='control buttons'>
+    <div class='controlButtons'>
       <span>
         <button id='updateUser'>Save</button>
       </span><span>
@@ -32,4 +32,4 @@
     </div>
   </form>
 </div>
-{{> footerUsers}}
+{{> footer}}

@@ -19,6 +19,7 @@ const User = bookshelf.Model.extend({
 });
 module.exports = User;
 */
+
 /*
 const bookshelf = require("../bookshelf");
 class User extends bookshelf.model {
