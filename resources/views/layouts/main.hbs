@@ -15,12 +15,13 @@
 
 <body>
   {{!-- {{ #if hasBackgroundImage }} background="{{ backgroundImage }}" {{ /if }} --}}
-
+  {{> header}}
 
   <h1 class='content display'>{{ mainHeading }}</h1>
   <div class="container">
     {{{ body }}}
   </div>
+  {{> footer}}
 </body>
 
 </html>

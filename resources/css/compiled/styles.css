@@ -124,4 +124,15 @@ table [data-href] {
   background-color: darkkhaki !important;
 }
 
+.icons {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.footer,
+.push {
+  height: 155px;
+  /* .push must be the same height as .footer */
+}
+
 /*# sourceMappingURL=styles.css.map */
