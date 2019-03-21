@@ -62,7 +62,7 @@ router.get("/edit/:id", (req, res) => {
     .fetch()
     .then(function(users) {
       res.render("userEdit", {
-        p: users,
+        p: users.attributes,
         mainHeading: "Remember Us!",
         pageTitle: "Edit User"
       });
@@ -94,7 +94,15 @@ router.get("/:id", (req, res) => {
 router.get("/", (req, res) => {
   console.log("GET: /");
   User.fetchAll().then(function(users) {
-    res.json({ users });
+    // res.json({ users });
+    console.log(users.models.length);
+    res.render("users", {
+      hasUsers: users.models.length > 0,
+      recordsFound: users.models.length,
+      users: users.models,
+      mainHeading: "Remember Us!",
+      pageTitle: "User List"
+    });
   });
 });
 
