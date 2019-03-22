@@ -1,0 +1,26 @@
+<form action="/landing" method="post" id="quickLogin">
+    <div id="usernameLogin">
+        <label for="usernameLogin">Username: </label>
+        <input type="text" id="username" name="username" required minlength="8" size="30">
+    </div>
+    <div id="passwordLogin">
+        <label for="passwordLogin">Password: </label>
+        <input type="text" id="password" name="password" required minlength="8" size="30">
+    </div>
+    <div id="quickLogin">
+        <button type="submit">Log In</button>
+    </div>
+</form>
+
+
+<div>
+    <h3>BECOME A REMEMBER MEMBER</h3>
+    <h3>You Won't Regret To Never Forget!</h3>
+
+    <form action="/users/new" method="GET">
+        <div id="signUpButton">
+            <button formmethod="GET" formonvalidate>Sign Up</button>
+        </div>
+    </form>
+    {{!-- <button formaction='/users' formmethod='GET' formnovalidate type='cancel'>Cancel</button> --}}
+</div>

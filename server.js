@@ -132,7 +132,7 @@ app.get("/index", (req, res) => {
 });
 
 app.get("/", (req, res, next) => {
-  res.render("home", {
+  res.render("landing", {
     mainHeading: "Star of proj",
     hasBackgroundImage: false
   });
