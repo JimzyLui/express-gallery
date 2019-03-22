@@ -134,6 +134,7 @@ app.get("/index", (req, res) => {
 app.get("/", (req, res, next) => {
   res.render("landing", {
     mainHeading: "Star of proj",
+    pageTitle: "Chow Hello Welcome!",
     hasBackgroundImage: false
   });
 });
