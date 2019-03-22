@@ -14,14 +14,16 @@
 {{!-- <body background="./../../images/whitelilly.jpeg"> --}}
 
 <body>
-  {{!-- {{ #if hasBackgroundImage }} background="{{ backgroundImage }}" {{ /if }} --}}
-  {{> header}}
+  <div class='content container'>
+    {{!-- {{ #if hasBackgroundImage }} background="{{ backgroundImage }}" {{ /if }} --}}
+    {{> header}}
 
-  <h1 class='content display'>{{ mainHeading }}</h1>
-  <div class="container">
+    <h1 class='content display'>{{ mainHeading }}</h1>
+    {{!-- <div class="container"> --}}
     {{{ body }}}
+    {{!-- </div> --}}
   </div>
-  {{> footer}}
+  {{> footer }}
 </body>
 
 </html>

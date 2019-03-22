@@ -7,7 +7,7 @@ module.exports = {
   client: "pg",
   connection: {
     // comment out host when directly accessing db via knex
-    host: process.env.POSTGRES_HOSTNAME,
+    // host: process.env.POSTGRES_HOSTNAME,
     // port: process.env.POSTGRES_HOST_PORT,
     database: process.env.POSTGRES_DB,
     user: process.env.POSTGRES_USER,
