@@ -5,6 +5,9 @@ class User extends bookshelf.Model {
   get tableName() {
     return "users";
   }
+  get id() {
+    return "id";
+  }
   get hasTimestamps() {
     return true;
   }
