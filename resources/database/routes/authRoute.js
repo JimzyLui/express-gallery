@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Users = require("../models/User");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 passport.serializeUser((user, done) => {
   console.log("serializeUser", user);

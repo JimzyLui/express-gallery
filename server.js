@@ -7,13 +7,18 @@ const expressHBS = require("express-handlebars");
 // const Photo = require("./resources/database/models/Photo");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const RedisStore = require("connect-redis")(session);
+const passport = require("passport");
+
 const flash = require("connect-flash");
 const fs = require("fs"); // file system
 const morgan = require("morgan"); // for logging
 const rfs = require("rotating-file-stream");
 // const sass = require("node-sass");
 //data const
-const PORT = process.env.PORT || 8080;
+// const PORT = process.env.PORT || 8080;
+const PORT = process.env.EXPRESS_CONTAINER_PORT || 8080;
+
 const SESSION_SECRET = process.env.SESSION_SECRET;
 const REDIS_HOSTNAME = process.env.REDIS_HOSTNAME;
 
@@ -29,6 +34,10 @@ if (!REDIS_HOSTNAME) {
 if (!PORT || !SESSION_SECRET || !REDIS_HOSTNAME) {
   return process.exit(1);
 }
+
+const photoRouter = require("./resources/database/routes/photosRoute");
+const userRouter = require("./resources/database/routes/usersRoute");
+const authRouter = require("./resources/database/routes/authRoute");
 
 const app = express();
 
@@ -84,11 +93,19 @@ app.use(bodyParser.json());
 //   })
 // );
 app.use(bodyParser.urlencoded({ extended: true })); // parse forms
+app.use(
+  session({
+    store: new RedisStore(),
+    secret: "oompah loompah",
+    resave: false,
+    saveUninitialized: false
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, "/resources")));
 //app.use(express.static(__dirname + "/node_modules/bootstrap/dist"));
-
-const photoRouter = require("./resources/database/routes/photosRoute");
-const userRouter = require("./resources/database/routes/usersRoute");
 
 //set up handlebars engine
 // Register `hbs.engine` with the Express app.
@@ -124,6 +141,12 @@ app.set("views", path.join(__dirname, "/resources/views"));
 // var appDir = path.dirname(require.main.filename);
 // console.log("appDir: ", appDir);
 app.use("/images", express.static(path.join(__dirname, "/resources/images")));
+
+// app.get("/", (req, res) => {
+//   res.send("sanity check");
+// });
+app.use("/", authRouter);
+
 app.use("/users", userRouter);
 app.use("/photos", photoRouter);
 
