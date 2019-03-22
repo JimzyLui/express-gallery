@@ -1,12 +1,12 @@
 <div id='usersPanel' class='container  display'>
-  <h2>{{pageTitle}}</h2>
-  <p class='center blue'>{{ recordsFound }} users found</p>
+  <h3>{{pageTitle}}</h3>
+  <p class=' blue'>{{ recordsFound }} users found</p>
   {{#if msgSuccess }}
   <p class='success'>{{msgSuccess}}</p>
   {{/if }}
 
   {{#if hasUsers }}
-  <table id='tableUsers' class='container table table-sm table-striped table-hover >
+  <table id='tableUsers' class='container table table-sm table-striped table-hover'>
     <thead>
       <tr class=' center '>
         <th>Last Name</th>
@@ -17,26 +17,26 @@
     </thead>
     <tbody>
       {{#each users}}
-      <tr >
-        <td>{{this.nameLast}}</td>
-        <td>{{this.nameFirst}}</td>
+      <tr data-href="/users/{{this.attributes.id}}">
+        <td>{{this.attributes.nameLast}}</td>
+        <td>{{this.attributes.nameFirst}}</td>
         <td>
-          <a href="/users/{{this.id}}">{{this.username}}</a>
+          {{!-- <a href="/users/{{this.attributes.id}}">{{this.attributes.username}}</a> --}}
+          {{this.attributes.username}}
         </td>
-        <td>{{this.email}}</td>
+        <td>{{this.attributes.email}}</td>
       </tr>
       {{/each}}
     </tbody>
   </table>
+  {{else }}
+  <p class=' warning'>No users found.</p>
+  {{/if }}
+  <form action='/users/new' method="GET">
+    <div class='controlButtons'>
+      <button type='submit'>Add New
+        User</button>
+    </div>
+  </form>
 </div>
-{{else }}
-<p class=' warning'>No users found.</p>
-    {{/if }}
-    <form action='/users/new' method="GET">
-      <div class='control button'>
-        <button type='submit'>Add New
-          User</button>
-      </div>
-    </form>
-</div>
-{{> footer}}
+{{!-- {{> footer}} --}}

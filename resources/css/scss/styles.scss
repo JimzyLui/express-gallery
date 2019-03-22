@@ -4,6 +4,7 @@
 $bg-color: cornflowerblue;
 $text-color: blue;
 $border-color: blue;
+$specialSunriseGradient: radial-gradient(yellow, #f06d06);
 
 @mixin flexColNoWrap() {
   display: flex;
@@ -11,7 +12,7 @@ $border-color: blue;
   justify-content: center;
 }
 @mixin sunnyGradient {
-  background-image: radial-gradient(yellow, #f06d06);
+  background-image: $specialSunriseGradient;
 }
 body {
   // background-color: $bg-color;
@@ -41,7 +42,8 @@ h1 {
 }
 #userEditPanel,
 #userAddPanel,
-#userDetailsPanel {
+#userDetailsPanel,
+#usersPanel {
   @include flexColNoWrap();
   h3 {
     text-align: center;
@@ -50,12 +52,14 @@ h1 {
     @include flexColNoWrap();
   }
   // background: linear-gradient(black, white);
-
   background-color: $bg-color;
-  // background-image: "./../../images/whitelilly.jpeg";
+  background-image: "./../../images/whitelilly.jpeg";
   border: 1px solid $border-color;
   margin-left: 20%;
   margin-right: 20%;
+}
+#usersPanel {
+  margin: auto auto;
 }
 .controlGrid {
   padding: 5px 5px;
@@ -79,4 +83,48 @@ h1 {
   // @include flexColNoWrap();
   align-self: center;
   margin-bottom: 10px;
+}
+.blue {
+  color: blue;
+}
+p {
+  align-self: center;
+}
+table {
+  border: 1px solid yellow;
+  thead tr th {
+    color: $text-color;
+    border-bottom: 2px solid $border-color;
+    white-space: nowrap; /* instead of in cell */
+    margin: 0 0;
+    padding: 0 5px;
+    background-color: yellow;
+  }
+  td {
+    background-color: #8db0f2;
+    a {
+      display: block;
+    }
+  }
+  margin: 0 10px;
+  [data-href] {
+    cursor: pointer;
+  }
+}
+.table-striped > tbody > tr:nth-child(odd) > td {
+  background-color: #76a0ef !important;
+}
+
+.table-hover tbody tr:hover td,
+.reportRow:hover,
+.reportSectionHeaderRow:hover {
+  background-color: darkkhaki !important;
+}
+.icons {
+  width: 24px !important;
+  height: 24px !important;
+}
+.footer,
+.push {
+  height: 155px; /* .push must be the same height as .footer */
 }

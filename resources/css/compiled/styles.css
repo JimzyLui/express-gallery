@@ -31,26 +31,34 @@ h1 {
 
 #userEditPanel,
 #userAddPanel,
-#userDetailsPanel {
+#userDetailsPanel,
+#usersPanel {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   background-color: cornflowerblue;
+  background-image: "./../../images/whitelilly.jpeg";
   border: 1px solid blue;
   margin-left: 20%;
   margin-right: 20%;
 }
 #userEditPanel h3,
 #userAddPanel h3,
-#userDetailsPanel h3 {
+#userDetailsPanel h3,
+#usersPanel h3 {
   text-align: center;
 }
 #userEditPanel form,
 #userAddPanel form,
-#userDetailsPanel form {
+#userDetailsPanel form,
+#usersPanel form {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+}
+
+#usersPanel {
+  margin: auto auto;
 }
 
 .controlGrid {
@@ -73,6 +81,58 @@ h1 {
 .controlButtons {
   align-self: center;
   margin-bottom: 10px;
+}
+
+.blue {
+  color: blue;
+}
+
+p {
+  align-self: center;
+}
+
+table {
+  border: 1px solid yellow;
+  margin: 0 10px;
+}
+table thead tr th {
+  color: blue;
+  border-bottom: 2px solid blue;
+  white-space: nowrap;
+  /* instead of in cell */
+  margin: 0 0;
+  padding: 0 5px;
+  background-color: yellow;
+}
+table td {
+  background-color: #8db0f2;
+}
+table td a {
+  display: block;
+}
+table [data-href] {
+  cursor: pointer;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+  background-color: #76a0ef !important;
+}
+
+.table-hover tbody tr:hover td,
+.reportRow:hover,
+.reportSectionHeaderRow:hover {
+  background-color: darkkhaki !important;
+}
+
+.icons {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.footer,
+.push {
+  height: 155px;
+  /* .push must be the same height as .footer */
 }
 
 /*# sourceMappingURL=styles.css.map */

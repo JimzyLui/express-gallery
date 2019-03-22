@@ -1,12 +1,21 @@
 <h1>{{title}}</h1>
 <div>
     {{#each photos}}
-    <li class="userid">{{photos.userId}}</li>
-    <li class="author">{{author}}</li>
-    <li class="caption">{{caption}}</li>
+    <div id="photoBox">
+        <div class="caption">{{this.attributes.caption}}</div>
+        <div class="link"><img src="{{this.attributes.link}}" alt=""></div>
+        <div class="author">{{this.attributes.author}}</div>
+        <div class="userid">{{this.attributes.userId}}</div>
+        <div class="description">{{this.attributes.description}}</div>
+    </div>
+
+    {{!-- <li class="userid">{{this.attributes.userId}}</li>
+    <li class="author">{{this.attributes.author}}</li>
+    <li class="caption">{{this.attributes.caption}}</li>
     <li class="link">
-        <img src="{{link}}" alt="">
+        <img src="{{this.attributes.link}}" alt="">
     </li>
-    <li class="description">{{description}}</li>
+    <li class="description">{{this.attributes.description}}</li> --}}
+
     {{/each}}
 </div>

@@ -12,7 +12,7 @@ class Photo extends bookshelf.Model {
     return "photos";
   }
   get hasTimestamps() {
-    return false;
+    return true;
   }
 }
 

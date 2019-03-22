@@ -2,18 +2,19 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {{!-- <link rel="stylesheet" type="text/scss" href="./../css/styles.scss"> --}}
-    <link rel="stylesheet" type="text/css" href="./../../css/compiled/styles.css">
-    {{!-- <link rel="stylesheet" type="text/css" href="./../../css/basic.css"> --}}
-    <title>Profiler</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {{!-- <link rel="stylesheet" type="text/scss" href="./../css/styles.scss"> --}}
+  <link rel="stylesheet" type="text/css" href="./../../css/compiled/styles.css">
+  {{!-- <link rel="stylesheet" type="text/css" href="./../../css/basic.css"> --}}
+  <title>{{ mainHeading }}</title>
 </head>
 
 {{!-- <body background="./../../images/whitelilly.jpeg"> --}}
 
 <body>
+<<<<<<< HEAD
     {{!-- {{ #if hasBackgroundImage }} background="{{ backgroundImage }}" {{ /if }} --}}
 
 
@@ -21,6 +22,16 @@
     <div class="container">
         {{{ body }}}
     </div>
+=======
+  {{!-- {{ #if hasBackgroundImage }} background="{{ backgroundImage }}" {{ /if }} --}}
+  {{> header}}
+
+  <h1 class='content display'>{{ mainHeading }}</h1>
+  <div class="container">
+    {{{ body }}}
+  </div>
+  {{> footer}}
+>>>>>>> 407996e6c367103fc38f65cd6a4087d8fe218e81
 </body>
 
 </html>

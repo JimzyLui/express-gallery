@@ -21,7 +21,7 @@
   <form>
     <div class='controlButtons'>
       <span>
-        <button type='submit' formaction="/users/{{p.id}}/edit" formmethod="GET">Edit</button>
+        <button type='submit' formaction="/users/edit/{{p.id}}" formmethod="GET">Edit</button>
       </span><span>
         <button type='submit' formaction="/users/new" formmethod='GET'>Add</button>
       </span><span>
@@ -30,4 +30,4 @@
     </div>
   </form>
 </div>
-{{> footer}}
+{{!-- {{> footer}} --}}

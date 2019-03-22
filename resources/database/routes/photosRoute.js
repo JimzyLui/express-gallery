@@ -18,12 +18,15 @@ router
 
 router.get("/", (req, res) => {
   Photo.fetchAll().then(photos => {
-    console.log(photos);
-    res.render("photos", { photos }).catch(error => {
-      console.log(error);
-      res.send("An Error Occurred!");
-    });
+    res.render("photos", { photos: photos.models });
   });
+  // Photo.fetchAll().then(photos => {
+  //   console.log(photos);
+  //   res.render("photos", { photos }).catch(error => {
+  //     console.log(error);
+  //     res.send("An Error Occurred!");
+  //   });
+  // });
 });
 
 module.exports = router;
