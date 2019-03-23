@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+}
+
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  background-image: radial-gradient(yellow, #f06d06);
+  flex: 1 0 auto;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid black;
+  background-color: blue;
+  color: yellow;
+  font-size: 16px;
+  font-weight: 700;
+  margin: auto auto;
+}
+
+#navBar {
+  background-color: black;
+  color: white !important;
+  padding: 5px;
+  line-height: 100px;
+  width: 100%;
+}
+
+footer {
+  height: 20px;
+  background-color: gray;
+  flex-shrink: 0;
+}
+
+.right {
+  align-self: flex-end;
+}
+
+.left {
+  align-self: flex-start;
+}
+
+h1 {
+  color: blue;
+  align-self: center;
+}
+
+#photoEditPanel {
+  background-color: cornflowerblue;
+  border: 1px solid blue;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+#userEditPanel,
+#userAddPanel,
+#userDetailsPanel,
+#usersPanel,
+.display {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  background-color: cornflowerblue;
+  background-image: "./../../images/whitelilly.jpeg";
+  border: 1px solid blue;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+#userEditPanel h3,
+#userAddPanel h3,
+#userDetailsPanel h3,
+#usersPanel h3,
+.display h3 {
+  text-align: center;
+}
+#userEditPanel form,
+#userAddPanel form,
+#userDetailsPanel form,
+#usersPanel form,
+.display form {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+#usersPanel {
+  margin: auto auto;
+}
+
+.controlGrid {
+  padding: 5px 5px;
+}
+
+.control {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: stretch;
+  margin: 5px 5px;
+}
+.control label {
+  text-align: end;
+  margin-right: 5px;
+  font-weight: 700;
+  color: blue;
+}
+
+.controlButtons {
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+.blue {
+  color: blue;
+}
+
+p {
+  align-self: center;
+}
+
+table {
+  border: 1px solid yellow;
+  margin: 0 10px;
+}
+table thead tr th {
+  color: blue;
+  border-bottom: 2px solid blue;
+  white-space: nowrap;
+  /* instead of in cell */
+  margin: 0 0;
+  padding: 0 5px;
+  background-color: yellow;
+}
+table td {
+  background-color: #8db0f2;
+}
+table td a {
+  display: block;
+}
+table [data-href] {
+  cursor: pointer;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td {
+  background-color: #76a0ef !important;
+}
+
+.table-hover tbody tr:hover td,
+.reportRow:hover,
+.reportSectionHeaderRow:hover {
+  background-color: darkkhaki !important;
+}
+
+.icons {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+/*# sourceMappingURL=styles.css.map */

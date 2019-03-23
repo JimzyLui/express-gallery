@@ -145,7 +145,7 @@ app.use("/images", express.static(path.join(__dirname, "/resources/images")));
 // app.get("/", (req, res) => {
 //   res.send("sanity check");
 // });
-app.use("/", authRouter);
+app.use("/auth", authRouter);
 
 app.use("/users", userRouter);
 app.use("/photos", photoRouter);
@@ -156,8 +156,8 @@ app.get("/index", (req, res) => {
 
 app.get("/", (req, res, next) => {
   res.render("landing", {
-    mainHeading: "Star of proj",
-    pageTitle: "Chow Hello Welcome!",
+    mainHeading: "REMEMBER US",
+    pageTitle: "Ciao!  Welcome!",
     hasBackgroundImage: false
   });
 });

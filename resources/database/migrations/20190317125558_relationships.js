@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
       table.integer("personId2").notNullable();
       table.integer("relationshipId").notNullable();
       table.timestamp("created_at").defaultTo(knex.fn.now());
-      table.timestamp("modified_at").defaultTo(knex.fn.now());
+      table.timestamp("updated_at").defaultTo(knex.fn.now());
     })
     .then(table => console.log(`-->Table '${tableName}' created.`));
 };

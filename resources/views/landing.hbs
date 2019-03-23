@@ -1,29 +1,30 @@
 <div id="landingPanel" class="landing container display">
-    <h3>{{pageTitle}}</h3>
-    <form action="/landing" method="post" id="quickLogin">
-        <div id="usernameLogin">
-            <label for="usernameLogin">Username: </label>
-            <input type="text" id="username" name="username" required minlength="8" size="30">
-        </div>
-        <div id="passwordLogin">
-            <label for="passwordLogin">Password: </label>
-            <input type="text" id="password" name="password" required minlength="8" size="30">
-        </div>
-        <div id="quickLogin">
-            <button type="submit">Log In</button>
-        </div>
+  <h3>{{pageTitle}}</h3>
 
-    </form>
-
-    <div>
-        <h3>BECOME A REMEMBER MEMBER</h3>
-        <h3>You Won't Regret To Never Forget!</h3>
-
-        <form action="/users/new" method="GET" id="signUpForm">
-            <div id="signUpButton">
-                <button>Sign Up</button>
-            </div>
-        </form>
-        {{!-- <button formaction='/users' formmethod='GET' formnovalidate type='cancel'>Cancel</button> --}}
+  <form action="/landing" method="post" id="quickLogin">
+    <div class='control'>
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username" required minlength="8" size="20">
     </div>
+    <div class='control'>
+      <label for="password">Password: </label>
+      <input type="password" id="password" name="password" required minlength="8" size="20">
+    </div>
+    <div class='controlButtons'>
+      <button type="submit">Log In</button>
+    </div>
+
+  </form>
+
+  <div>
+    <h3>BECOME A REMEMBER MEMBER BEFORE SEPTEMBER</h3>
+    <h3>You Won't Regret To Never Forget!</h3>
+
+    <form action="/users/new" method="GET" id="signUpForm">
+      <div class='controlButtons'>
+        <button type='submit'>Sign Up</button>
+      </div>
+    </form>
+    {{!-- <button formaction='/users' formmethod='GET' formnovalidate type='cancel'>Cancel</button> --}}
+  </div>
 </div>

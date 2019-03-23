@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
       table.date("dateOfBirth");
       table.date("dateOfDeath");
       table.timestamp("created_at").defaultTo(knex.fn.now());
-      table.timestamp("modified_at").defaultTo(knex.fn.now());
+      table.timestamp("updated_at").defaultTo(knex.fn.now());
     })
     .then(table => console.log(`-->Table '${tableName}' created.`));
 };

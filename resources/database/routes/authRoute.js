@@ -31,14 +31,14 @@ passport.use(
     Users.where({ email })
       .fetch()
       .then(user => {
-        console.log("user in local strategy", user);
+        console.log("user in local strategy: ", user);
         user = user.toJSON();
         // if (user.password === password) {
         //   done(null, user )
         // } else {
         //   done(null, false)
         // }
-        bcrypt.compare(password, user.password).then(res => {
+        bcrypt.compare(password, user.hashedPassword).then(res => {
           if (res) {
             done(null, user);
           } else {
@@ -54,22 +54,29 @@ passport.use(
 
 const SALT_ROUND = 12;
 
-router.post("/auth/register", (req, res) => {
-  const { email, password } = req.body;
+router.post("/register", (req, res) => {
+  const { email, password, nameFirst, nameLast, username } = req.body;
 
   bcrypt
-    .genSalt(12)
+    .genSalt(SALT_ROUND)
     .then(salt => {
       console.log("salt", salt);
       return bcrypt.hash(password, salt);
     })
-    .then(hash => {
-      console.log("hash", hash);
-      return Users.forge({ email, password: hash }).save();
+    .then(hashedPassword => {
+      console.log("hash", hashedPassword);
+      return Users.forge({
+        email,
+        nameFirst,
+        nameLast,
+        username,
+        hashedPassword: hashedPassword
+      }).save();
     })
     .then(user => {
       user = user.toJSON();
-      res.json(user); // Never send the entire user object back to client! It has their password!
+      res.redirect("/");
+      //res.json(user); // Never send the entire user object back to client! It has their password!
       // res.sendStatus(200)
       // res.redirect('/api/auth/secret')
     })
@@ -81,22 +88,22 @@ router.post("/auth/register", (req, res) => {
 });
 
 router.post(
-  "/auth/login",
+  "/login",
   passport.authenticate("local", { failureRedirect: "/" }),
   (req, res) => {
-    // grab the user on record
+    // authenticate grabs the user on record
     // compare req.body.password to password on record
 
     res.send("YAY IM IN!!!!");
   }
 );
 
-router.post("/auth/logout", (req, res) => {
+router.post("/logout", (req, res) => {
   req.logout();
   res.redirect("/");
 });
 
-router.get("/auth/secret", isAuthenticated, (req, res) => {
+router.get("/secret", isAuthenticated, (req, res) => {
   res.send("YOU HAVE REACHED NIRVANA");
 });
 

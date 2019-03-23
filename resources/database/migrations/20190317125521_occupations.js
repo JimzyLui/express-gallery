@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       table.increments("id").primary();
       table.string("occupation", 150).notNullable();
       table.timestamp("created_at").defaultTo(knex.fn.now());
-      table.timestamp("modified_at").defaultTo(knex.fn.now());
+      table.timestamp("updated_at").defaultTo(knex.fn.now());
     })
     .then(table => console.log(`-->Table '${tableName}' created.`));
 };

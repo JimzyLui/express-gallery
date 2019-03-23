@@ -8,9 +8,8 @@ exports.up = function(knex, Promise) {
       table.string("nameFirst", 100);
       table.string("nameLast", 100);
       table.string("email", 100);
-      table.string("password").notNullable();
       table.timestamp("created_at").defaultTo(knex.fn.now());
-      table.timestamp("modified_at").defaultTo(knex.fn.now());
+      table.timestamp("updated_at").defaultTo(knex.fn.now());
     })
     .then(table => console.log(`-->Table '${tableName}' created.`));
 };

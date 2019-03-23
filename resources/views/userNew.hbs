@@ -1,6 +1,6 @@
 <div id='userAddPanel' class='userNew container display' background="{{backgroundImage}}">
   <h3>{{ pageTitle }}</h3>
-  <form action="/users/add" method="POST" id='addUser'>
+  <form action="/auth/register" method="POST" id='addUser'>
     <div class='controlGrid'>
       <div class='control'>
         <label for="nameFirst">First Name: </label>
@@ -20,11 +20,16 @@
       </div>
       <div class='control'>
         <label for="password">Password: </label>
-        <input type="text" id="password" name="password" required minlength="8" size="30">
+        <input type="password" id="password" name="password" required minlength="8" size="30"
+          pattern="(?=^.{8,30}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*"
+          autocomplete="new-password"
+          title="Password must have the following criteria: between 8 and 30 characters, 1 digit, 1 uppercase letter, 1 lowercase letter, and 1 special character">
       </div>
       <div class='control'>
         <label for="verifyPassword">Verify Password: </label>
-        <input type="text" id="verify" name="verify" required minlength="8" size="30">
+        <input type="password" id="verify" name="verify" required minlength="8" size="30"
+          pattern="(?=^.{8,30}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*"
+          autocomplete="new-password">
       </div>
     </div>
 

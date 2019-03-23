@@ -18,11 +18,13 @@ router.get("/new", (req, res) => {
   });
 });
 router.post("/add", (req, res) => {
-  new User({
+  console.log("Adding new user...");
+  return User.forge({
     nameFirst: req.body.nameFirst,
     nameLast: req.body.nameLast,
     username: req.body.username,
-    password: req.body.password,
+    // hashedPassword: req.body.hashedPassword,
+    hashedPassword: "req.body.hashedPassword",
     email: req.body.email
   })
     .save()
