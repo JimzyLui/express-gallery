@@ -22,6 +22,7 @@ router.post("/add", (req, res) => {
     nameFirst: req.body.nameFirst,
     nameLast: req.body.nameLast,
     username: req.body.username,
+    password: req.body.password,
     email: req.body.email
   })
     .save()

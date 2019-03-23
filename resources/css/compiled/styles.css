@@ -61,7 +61,8 @@ h1 {
 #userEditPanel,
 #userAddPanel,
 #userDetailsPanel,
-#usersPanel {
+#usersPanel,
+.display {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -74,13 +75,15 @@ h1 {
 #userEditPanel h3,
 #userAddPanel h3,
 #userDetailsPanel h3,
-#usersPanel h3 {
+#usersPanel h3,
+.display h3 {
   text-align: center;
 }
 #userEditPanel form,
 #userAddPanel form,
 #userDetailsPanel form,
-#usersPanel form {
+#usersPanel form,
+.display form {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;

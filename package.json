@@ -7,7 +7,13 @@
     "dev": "./node_modules/.bin/nodemon ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "knex migrate:latest",
-    "seed": "knex seed:run"
+    "seed": "knex seed:run",
+    "dc up": "docker-compose up",
+    "dc d": "docker-compose down",
+    "dc d -v": "docker-compose down -v",
+    "prune": "docker system prune -a",
+    "di": "docker images",
+    "dps": "docker ps"
   },
   "keywords": [],
   "author": "",

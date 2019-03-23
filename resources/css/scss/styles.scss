@@ -14,13 +14,13 @@ $specialSunriseGradient: radial-gradient(yellow, #f06d06);
 @mixin sunnyGradient {
   background-image: $specialSunriseGradient;
 }
-body {
-  // background-color: $bg-color;
-  // @include flexColNoWrap();
-  // background: "./../../images/whitelilly.jpeg";
-  // background: linear-gradient($bg-color, black);
-  // @include sunnyGradient();
-}
+// body {
+// background-color: $bg-color;
+// @include flexColNoWrap();
+// background: "./../../images/whitelilly.jpeg";
+// background: linear-gradient($bg-color, black);
+// @include sunnyGradient();
+// }
 .content {
   @include flexColNoWrap();
   @include sunnyGradient();
@@ -75,7 +75,8 @@ h1 {
 #userEditPanel,
 #userAddPanel,
 #userDetailsPanel,
-#usersPanel {
+#usersPanel,
+.display {
   @include flexColNoWrap();
   h3 {
     text-align: center;
