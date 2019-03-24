@@ -70,6 +70,7 @@ const cookie_secret = "asdfadfs";
 // app.use(session({cookie: { maxAge: 60000 }}));
 app.use(
   session({
+    store: new RedisStore({ url: process.env.REDIS_HOSTNAME }),
     secret: cookie_secret,
     resave: true,
     saveUninitialized: true

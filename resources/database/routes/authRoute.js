@@ -117,7 +117,7 @@ router.post(
         user = user.toJSON();
         res.render("landingPage", {
           mainHeading: "Remember Me",
-          pageTitle: `Welcome, ${user.nameFirst} Home`,
+          pageTitle: `Welcome, ${user.nameFirst}!`,
           msgSuccess: req.flash("success")
         });
       });
@@ -131,7 +131,11 @@ router.post("/logout", (req, res) => {
   req.logout();
   res.render("landingPage", {
     mainHeading: "Remember Me",
+<<<<<<< HEAD
     pageTitle: `GoodBye Come Again Friend`,
+=======
+    pageTitle: `See you later!`,
+>>>>>>> a407bfb3959419b30833dd136c8d4766eaed4676
     msgSuccess: req.flash("success")
   });
 });

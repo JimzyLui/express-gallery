@@ -2,12 +2,20 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background-image: radial-gradient(yellow, #f06d06);
+}
+
 .content {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
-  background-image: radial-gradient(yellow, #f06d06);
-  flex: 1 0 auto;
+  overflow: auto;
 }
 
 #navbar {
@@ -32,10 +40,14 @@
   width: 100%;
 }
 
-footer {
-  height: 20px;
-  background-color: gray;
+footer,
+.push {
+  height: 30px;
+  background-color: blue;
   flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  margin-top: 10device-height-30px;
 }
 
 .right {
@@ -159,6 +171,7 @@ table [data-href] {
 .icons {
   width: 24px !important;
   height: 24px !important;
+  color: yellow !important;
 }
 
 .warning,
@@ -170,6 +183,10 @@ table [data-href] {
 .success {
   color: green;
   text-align: center;
+}
+
+input {
+  width: 60%;
 }
 
 /*# sourceMappingURL=styles.css.map */

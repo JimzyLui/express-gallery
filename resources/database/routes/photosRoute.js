@@ -13,7 +13,11 @@ router.get("/edit/:id", isAuthenticated, (req, res) => {
 
 router
   .route("/new")
+<<<<<<< HEAD
   .get(isAuthenticated, (req, res) => {
+=======
+  .get((req, res) => {
+>>>>>>> a407bfb3959419b30833dd136c8d4766eaed4676
     res.render("photoNew", { mainHeading: "Add New Photo" });
   })
   .post((req, res) => {
