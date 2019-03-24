@@ -47,6 +47,8 @@ passport.use(
         });
       })
       .catch(err => {
+        const msg = `Errored during auth!`;
+        req.flash("fail", msg);
         done(null, false);
       });
   })
@@ -74,6 +76,8 @@ router.post("/register", (req, res) => {
       }).save();
     })
     .then(user => {
+      const msg = `Registration successful!`;
+      req.flash("success", msg);
       user = user.toJSON();
       res.redirect("/");
       //res.json(user); // Never send the entire user object back to client! It has their password!
@@ -81,6 +85,8 @@ router.post("/register", (req, res) => {
       // res.redirect('/api/auth/secret')
     })
     .catch(err => {
+      const msg = `Registration failed!`;
+      req.flash("fail", msg);
       console.log("err", err);
       res.json(err);
       // res.sendStatus(500)
@@ -91,7 +97,9 @@ router.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/" }),
   (req, res) => {
-    console.log("login successful!");
+    const msg = `Login successful!`;
+    req.flash("success", msg);
+    console.log(msg);
     // authenticate grabs the user on record
     // compare req.body.password to password on record
 
@@ -100,11 +108,15 @@ router.post(
 );
 
 router.post("/logout", (req, res) => {
+  const msg = `User logged out!`;
+  req.flash("success", msg);
+  console.log(msg);
   req.logout();
   res.redirect("/");
 });
 
 router.get("/secret", isAuthenticated, (req, res) => {
+  console.log("secret authed");
   res.send("YOU HAVE REACHED NIRVANA");
 });
 
@@ -112,6 +124,9 @@ function isAuthenticated(req, res, done) {
   if (req.isAuthenticated()) {
     done();
   } else {
+    const msg = `Not authenticated!`;
+    req.flash("Fail", msg);
+    console.log(msg);
     res.redirect("/");
   }
 }

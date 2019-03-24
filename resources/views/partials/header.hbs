@@ -2,5 +2,13 @@
   <a href="/">
     <img src="./../../images/home.svg" alt="Home" class='icons'>
   </a>
-  {{ >logout }}
+  <div id="logout">
+    <form action="/auth/logout" method="POST">
+      <button>Logout</button>
+    </form>
+  </div>
+
+  {{!-- <a href="/">
+    <img src="./../../images/home.svg" alt="Home" class='icons'>
+  </a> --}}
 </div>
