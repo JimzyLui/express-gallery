@@ -5,7 +5,7 @@ const LocalStrategy = require("passport-local");
 const bcrypt = require("bcryptjs");
 
 passport.serializeUser((user, done) => {
-  console.log("serializeUser", user);
+  // console.log("serializeUser", user);
   done(null, {
     email: user.email,
     junk: "randomData"
@@ -13,7 +13,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((user, done) => {
-  console.log("deserializing User", user);
+  // console.log("deserializing User", user);
   User.where({ email: user.email })
     .fetch()
     .then(user => {
@@ -31,7 +31,7 @@ passport.use(
     User.where({ email })
       .fetch()
       .then(user => {
-        console.log("user in local strategy: ", user);
+        // console.log("user in local strategy: ", user);
         user = user.toJSON();
 
         bcrypt.compare(password, user.hashedPassword).then(res => {
@@ -58,12 +58,17 @@ router.post("/register", (req, res) => {
   bcrypt
     .genSalt(SALT_ROUND)
     .then(salt => {
-      console.log("salt", salt);
+      // console.log("salt", salt);
       return bcrypt.hash(password, salt);
     })
     .then(hashedPassword => {
+<<<<<<< HEAD
       console.log("hash", hashedPassword);
       return User.forge({
+=======
+      // console.log("hash", hashedPassword);
+      return Users.forge({
+>>>>>>> 4620ac9ddbf788745329e4f74d5b069a2b5049a8
         email,
         nameFirst,
         nameLast,
