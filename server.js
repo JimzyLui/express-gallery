@@ -95,8 +95,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // parse forms
 app.use(
   session({
-    store: new RedisStore(),
-    secret: "oompah loompah",
+    store: new RedisStore({ url: process.env.REDIS_HOSTNAME }),
+    secret: cookie_secret,
     resave: false,
     saveUninitialized: false
   })
@@ -155,7 +155,7 @@ app.get("/index", (req, res) => {
 });
 
 app.get("/", (req, res, next) => {
-  res.render("landing", {
+  res.render("landingPage", {
     mainHeading: "REMEMBER US",
     pageTitle: "Ciao!  Welcome!",
     hasBackgroundImage: false

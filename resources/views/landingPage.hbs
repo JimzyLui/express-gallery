@@ -1,7 +1,7 @@
-<div id="landingPanel" class="landing container display">
+<div id="landingPanel" class="landingPage container display">
   <h3>{{pageTitle}}</h3>
 
-  <form action="/landing" method="post" id="quickLogin">
+  <form action="/auth/login" method="post" id="quickLogin">
     <div class='control'>
       <label for="username">Username: </label>
       <input type="text" id="username" name="username" required minlength="8" size="20">
@@ -15,6 +15,8 @@
     </div>
 
   </form>
+  <?php
+  echo $_SERVER; ?>
 
   <div>
     <h3>BECOME A REMEMBER MEMBER BEFORE SEPTEMBER</h3>

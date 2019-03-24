@@ -91,6 +91,7 @@ router.post(
   "/login",
   passport.authenticate("local", { failureRedirect: "/" }),
   (req, res) => {
+    console.log("login successful!");
     // authenticate grabs the user on record
     // compare req.body.password to password on record
 
