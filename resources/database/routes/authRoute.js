@@ -115,7 +115,7 @@ router.post(
       .fetch()
       .then(user => {
         user = user.toJSON();
-        res.render("landingPage", {
+        res.render("userHome", {
           mainHeading: "Remember Me",
           pageTitle: `Welcome, ${user.nameFirst}!`,
           msgSuccess: req.flash("success")
@@ -123,7 +123,6 @@ router.post(
       });
   }
 );
-
 router.post("/logout", (req, res) => {
   const msg = `User logged out!`;
   req.flash("success", msg);
@@ -131,11 +130,7 @@ router.post("/logout", (req, res) => {
   req.logout();
   res.render("landingPage", {
     mainHeading: "Remember Me",
-<<<<<<< HEAD
-    pageTitle: `GoodBye Come Again Friend`,
-=======
     pageTitle: `See you later!`,
->>>>>>> a407bfb3959419b30833dd136c8d4766eaed4676
     msgSuccess: req.flash("success")
   });
 });
