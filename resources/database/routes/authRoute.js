@@ -62,13 +62,8 @@ router.post("/register", (req, res) => {
       return bcrypt.hash(password, salt);
     })
     .then(hashedPassword => {
-<<<<<<< HEAD
-      console.log("hash", hashedPassword);
-      return User.forge({
-=======
       // console.log("hash", hashedPassword);
       return Users.forge({
->>>>>>> 4620ac9ddbf788745329e4f74d5b069a2b5049a8
         email,
         nameFirst,
         nameLast,
