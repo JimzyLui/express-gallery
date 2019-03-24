@@ -10,7 +10,7 @@ router.get("/edit/:id", (req, res) => {
 router
   .route("/new")
   .get((req, res) => {
-    res.render("photosNew", { mainHeading: "Add New Photo" });
+    res.render("photoNew", { mainHeading: "Add New Photo" });
   })
   .post((req, res) => {
     res.send("posted!!!");

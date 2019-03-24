@@ -15,7 +15,7 @@
 
 <body>
 
-  <div class='content container'>
+  <div class='content '>
     {{!-- {{ #if hasBackgroundImage }} background="{{ backgroundImage }}" {{ /if }} --}}
     {{> header}}
     {{#if msgSuccess }}
@@ -24,12 +24,11 @@
     {{#if msgFail }}
     <p class='fail'>{{msgFail}}</p>
     {{/if }}
-    <h1 class='content display'>{{ mainHeading }}</h1>
+    <h1 class='content'>{{ mainHeading }}</h1>
     {{!-- <div class="container"> --}}
     {{{ body }}}
     {{!-- </div> --}}
   </div>
-
   {{> footer }}
 </body>
 

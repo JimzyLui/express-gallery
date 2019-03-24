@@ -1,11 +1,16 @@
 * {
   box-sizing: border-box;
 }
+
 $bg-color: cornflowerblue;
 $text-color: blue;
 $border-color: blue;
 $specialSunriseGradient: radial-gradient(yellow, #f06d06);
 
+// html,
+// body {
+//   height: 98%;
+// }
 @mixin flexColNoWrap() {
   display: flex;
   flex-flow: column nowrap;
@@ -14,6 +19,16 @@ $specialSunriseGradient: radial-gradient(yellow, #f06d06);
 @mixin sunnyGradient {
   background-image: $specialSunriseGradient;
 }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  @include sunnyGradient();
+}
+
 // body {
 // background-color: $bg-color;
 // @include flexColNoWrap();
@@ -22,10 +37,18 @@ $specialSunriseGradient: radial-gradient(yellow, #f06d06);
 // @include sunnyGradient();
 // }
 .content {
-  @include flexColNoWrap();
-  @include sunnyGradient();
-  flex: 1 0 auto;
+  // @include flexColNoWrap();
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  overflow: auto;
+
+  // @include sunnyGradient();
+  // flex: 1 0 auto;
   // background-color: lightblue;
+  // height: 1000px;
+  // float: bottom;
+  // height: 100%;
 }
 
 #navbar {
@@ -50,11 +73,20 @@ $specialSunriseGradient: radial-gradient(yellow, #f06d06);
   line-height: 100px;
   width: 100%;
 }
-footer {
+footer,
+.push {
   // width: auto;
-  height: 20px;
-  background-color: gray;
+  height: 30px;
+  background-color: blue;
   flex-shrink: 0;
+  margin: 0;
+  // margin-top: 40%;
+  padding: 0;
+  // bottom: -30px;
+  // float: bottom;
+  // position: relative;
+  margin-top: 10 + (device-height - 30) + "px";
+  // margin-top: -30px; /* negative value of footer height */
 }
 .right {
   align-self: flex-end;
@@ -156,6 +188,7 @@ table {
 .icons {
   width: 24px !important;
   height: 24px !important;
+  color: yellow !important;
 }
 // .footer,
 // .push {
@@ -170,4 +203,7 @@ table {
 .success {
   color: green;
   text-align: center;
+}
+input {
+  width: 60%;
 }

@@ -114,9 +114,10 @@ router.post(
     User.where({ email })
       .fetch()
       .then(user => {
+        user = user.toJSON();
         res.render("landingPage", {
           mainHeading: "Remember Me",
-          pageTitle: `Welcome, ${user.nameFirst} Home`,
+          pageTitle: `Welcome, ${user.nameFirst}!`,
           msgSuccess: req.flash("success")
         });
       });
@@ -128,7 +129,11 @@ router.post("/logout", (req, res) => {
   req.flash("success", msg);
   console.log(msg);
   req.logout();
-  res.redirect("/");
+  res.render("landingPage", {
+    mainHeading: "Remember Me",
+    pageTitle: `See you later!`,
+    msgSuccess: req.flash("success")
+  });
 });
 
 router.get("/secret", isAuthenticated, (req, res) => {
