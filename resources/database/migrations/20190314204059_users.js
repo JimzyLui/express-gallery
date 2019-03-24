@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
       table.string("username", 150).notNullable();
       table.string("nameFirst", 100);
       table.string("nameLast", 100);
-      table.string("email", 100);
+      table.string("email", 100).unique();
       table.timestamp("created_at").defaultTo(knex.fn.now());
       table.timestamp("updated_at").defaultTo(knex.fn.now());
     })

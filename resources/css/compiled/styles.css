@@ -161,4 +161,15 @@ table [data-href] {
   height: 24px !important;
 }
 
+.warning,
+.fail {
+  color: red;
+  text-align: center;
+}
+
+.success {
+  color: green;
+  text-align: center;
+}
+
 /*# sourceMappingURL=styles.css.map */

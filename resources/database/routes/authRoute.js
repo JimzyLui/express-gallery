@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Users = require("../models/User");
+const User = require("../models/User");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const bcrypt = require("bcryptjs");
@@ -14,7 +14,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((user, done) => {
   console.log("deserializing User", user);
-  Users.where({ email: user.email })
+  User.where({ email: user.email })
     .fetch()
     .then(user => {
       user = user.toJSON();
@@ -28,16 +28,12 @@ passport.deserializeUser((user, done) => {
 passport.use(
   new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
     console.log("local is being called");
-    Users.where({ email })
+    User.where({ email })
       .fetch()
       .then(user => {
         console.log("user in local strategy: ", user);
         user = user.toJSON();
-        // if (user.password === password) {
-        //   done(null, user )
-        // } else {
-        //   done(null, false)
-        // }
+
         bcrypt.compare(password, user.hashedPassword).then(res => {
           if (res) {
             done(null, user);
@@ -58,7 +54,7 @@ const SALT_ROUND = 12;
 
 router.post("/register", (req, res) => {
   const { email, password, nameFirst, nameLast, username } = req.body;
-
+  console.log("registering...");
   bcrypt
     .genSalt(SALT_ROUND)
     .then(salt => {
@@ -77,9 +73,14 @@ router.post("/register", (req, res) => {
     })
     .then(user => {
       const msg = `Registration successful!`;
+      console.log(msg);
       req.flash("success", msg);
       user = user.toJSON();
-      res.redirect("/");
+      res.render("landingPage", {
+        mainHeading: "Remember Me",
+        pageTitle: `Welcome, ${user.nameFirst} Home`,
+        msgSuccess: req.flash("success")
+      });
       //res.json(user); // Never send the entire user object back to client! It has their password!
       // res.sendStatus(200)
       // res.redirect('/api/auth/secret')
@@ -90,6 +91,12 @@ router.post("/register", (req, res) => {
       console.log("err", err);
       res.json(err);
       // res.sendStatus(500)
+
+      res.render("landingPage", {
+        mainHeading: "Remember Me",
+        pageTitle: `Welcome, ${user.nameFirst} Home`,
+        msgFail: req.flash("fail")
+      });
     });
 });
 
@@ -102,8 +109,17 @@ router.post(
     console.log(msg);
     // authenticate grabs the user on record
     // compare req.body.password to password on record
-
-    res.send("YAY IM IN!!!!");
+    const email = req.body.email;
+    //res.send("YAY IM IN!!!!");
+    User.where({ email })
+      .fetch()
+      .then(user => {
+        res.render("landingPage", {
+          mainHeading: "Remember Me",
+          pageTitle: `Welcome, ${user.nameFirst} Home`,
+          msgSuccess: req.flash("success")
+        });
+      });
   }
 );
 

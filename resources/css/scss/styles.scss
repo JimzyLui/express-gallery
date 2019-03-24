@@ -161,3 +161,13 @@ table {
 // .push {
 //   height: 155px; /* .push must be the same height as .footer */
 // }
+
+.warning,
+.fail {
+  color: red;
+  text-align: center;
+}
+.success {
+  color: green;
+  text-align: center;
+}
