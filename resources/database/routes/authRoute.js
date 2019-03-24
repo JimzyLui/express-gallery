@@ -63,7 +63,7 @@ router.post("/register", (req, res) => {
     })
     .then(hashedPassword => {
       console.log("hash", hashedPassword);
-      return Users.forge({
+      return User.forge({
         email,
         nameFirst,
         nameLast,
@@ -114,6 +114,7 @@ router.post(
     User.where({ email })
       .fetch()
       .then(user => {
+        user = user.toJSON();
         res.render("landingPage", {
           mainHeading: "Remember Me",
           pageTitle: `Welcome, ${user.nameFirst} Home`,
@@ -128,7 +129,11 @@ router.post("/logout", (req, res) => {
   req.flash("success", msg);
   console.log(msg);
   req.logout();
-  res.redirect("/");
+  res.render("landingPage", {
+    mainHeading: "Remember Me",
+    pageTitle: `GoodBye Come Again Friend`,
+    msgSuccess: req.flash("success")
+  });
 });
 
 router.get("/secret", isAuthenticated, (req, res) => {
